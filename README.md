@@ -20,7 +20,6 @@ Zawiera dane wniosków urlopowych pracowników:
 
 <img src="./screenshots/list-view.png" width="650"/>
 
----
 
 ### 📝 Formularz Power Apps
 
@@ -56,14 +55,17 @@ Dostępna jest intuicyjna nawigacja między formularzem a listą wniosków:
 
 ### 📂 Struktura plików
 
+```json
 📁 sharepoint/
 └─ list-schema.md # Struktura listy SharePoint
+
 📁 docs/
 └─ flow-description.md # Opis flow zatwierdzania
+
 📁 screenshots/
 ├─ list-view.png # Widok listy SharePoint
 └─ form-submit-clean.png # Widok formularza Power Apps
-
+```
 
 ---
 
