@@ -28,7 +28,16 @@ Użytkownik może przesłać wniosek o urlop, wypełniając wymagane pola i wybi
 
 <img src="./screenshots/form-submit-clean.png" width="400"/>
 
----
+
+### 👤 Widok „Moje wnioski” – Power Apps galeria
+
+Użytkownik może przeglądać tylko własne zgłoszenia urlopowe (na podstawie `EmployeeName = User().FullName`), w formie przejrzystej galerii:
+
+<img src="./screenshots/widok-moje-wnioski.png" width="400"/>
+
+Zastosowano formatowanie pól `LeaveType`, `StartDate`, `EndDate` oraz `Status`.
+
+
 
 ### 🔧 Funkcjonalności v1.0
 
@@ -58,8 +67,8 @@ Użytkownik może przesłać wniosek o urlop, wypełniając wymagane pola i wybi
 
 ### 🛣️ Roadmapa
 
-- [x] Formularz Power Apps do zgłaszania urlopów
-- [ ] Widok „Moje wnioski” z filtrem użytkownika
++ [x] Formularz Power Apps do zgłaszania urlopów
++ [x] Widok „Moje wnioski” z filtrem użytkownika
 - [ ] Dashboard z licznikami i filtrami (Power BI / SharePoint)
 - [ ] Integracja z Microsoft Teams (np. powiadomienia)
 - [ ] Eksport danych do CSV
@@ -78,6 +87,7 @@ A lightweight leave request system built with Microsoft 365 tools: SharePoint On
 
 - SharePoint list `LeaveRequests` with custom fields
 - Power Apps form for submitting requests
+- Power Apps gallery showing only requests for the logged-in user
 - Power Automate approval flow (email + condition logic)
 - Status auto-update + optional manager comment
 - Screenshot-based documentation
@@ -87,8 +97,8 @@ A lightweight leave request system built with Microsoft 365 tools: SharePoint On
 
 ### 🛣️ Roadmap
 
-- [x] Power Apps form (submit request)
-- [ ] "My leave requests" view (user filter)
++ [x] Power Apps form (submit request)
++ [x] "My leave requests" view (user filter)
 - [ ] Power BI dashboard or SharePoint view with KPIs
 - [ ] Teams alert integration
 - [ ] CSV export + Excel import (migration case)
