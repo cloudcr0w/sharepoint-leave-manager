@@ -1,8 +1,15 @@
 # 📅 SharePoint Leave Manager
+![Power Platform](https://img.shields.io/badge/Microsoft-Power_Platform-742774?logo=powerapps&logoColor=white)
+![Status](https://img.shields.io/badge/Version-MOCK%20v1.0-blue)
+![Project Type](https://img.shields.io/badge/Type-Leave%20Management%20App-lightgrey)
+![Built With](https://img.shields.io/badge/Built_with-SharePoint%20%7C%20Power%20Apps%20%7C%20Power%20Automate-00adef)
+![Repo status](https://img.shields.io/badge/Status--Ready_for_expansion-green)
 
 ## 🇵🇱 Opis projektu
 
 System do zarządzania wnioskami urlopowymi pracowników, zbudowany w oparciu o Microsoft 365: SharePoint Online, Power Automate oraz Power Apps. Projekt demonstruje pełny przepływ — od zgłoszenia nieobecności po automatyzację zatwierdzeń. Dodatkowo zawiera plan dalszego rozwoju z użyciem Power Platform i Microsoft Teams.
+
+📄 [English version](./README.en.md)
 
 ---
 
@@ -56,15 +63,22 @@ Dostępna jest intuicyjna nawigacja między formularzem a listą wniosków:
 ### 📂 Struktura plików
 
 ```json
-📁 sharepoint/
-└─ list-schema.md # Struktura listy SharePoint
-
 📁 docs/
-└─ flow-description.md # Opis flow zatwierdzania
+├─ data-import-plan.md         # Plan importu danych z Excela (migracja)
+├─ flow-description.md         # Opis przepływu zatwierdzania (Power Automate)
+└─ troubleshooting.md          # Znane problemy i rozwiązania
 
 📁 screenshots/
-├─ list-view.png # Widok listy SharePoint
-└─ form-submit-clean.png # Widok formularza Power Apps
+├─ form-submit-clean.png                 # Czysty formularz Power Apps
+├─ form-submit-with-navi-button.png     # Formularz z przyciskiem „Moje wnioski”
+├─ my-request-view-with-navi-button.png # Widok galerii użytkownika z przyciskiem
+└─ list-view.png                         # Widok listy SharePoint (LeaveRequests)
+
+📁 sharepoint/
+└─ list-schema.md              # Definicja kolumn listy SharePoint
+
+📄 README.md                   # Dokument główny projektu
+
 ```
 
 ---
@@ -79,35 +93,11 @@ Dostępna jest intuicyjna nawigacja między formularzem a listą wniosków:
 - [ ] Import historycznych wniosków z pliku Excel (np. migracja z systemu legacy)
 - [ ] Walidacja: dni robocze, święta (Outlook Calendar / Azure Function)
 
----
+## 📄 Dokumentacja
 
-## 🇬🇧 Project Description
-
-A lightweight leave request system built with Microsoft 365 tools: SharePoint Online, Power Automate, and Power Apps (mock version). The solution simulates a real approval workflow and is ready for further development (Teams, BI dashboards, data migration, etc.).
-
----
-
-### 🔧 Features v1.0
-
-- SharePoint list `LeaveRequests` with custom fields
-- Power Apps form for submitting requests
-- Power Apps gallery showing only requests for the logged-in user
-- Power Automate approval flow (email + condition logic)
-- Status auto-update + optional manager comment
-- Screenshot-based documentation
-- Ready for Power Platform and Teams integrations
+- 📑 [Opis przepływu zatwierdzania](./docs/flow-description.md)
+- 🛠️ [Plan importu danych z Excela](./docs/data-import-plan.md)
+- 🧩 [Lista problemów i rozwiązań (troubleshooting)](./docs/troubleshooting.md)
+- 🗂️ [Struktura listy SharePoint](./sharepoint/list-schema.md)
 
 ---
-
-### 🛣️ Roadmap
-
-+ [x] Power Apps form (submit request)
-+ [x] "My leave requests" view (user filter)
-- [ ] Power BI dashboard or SharePoint view with KPIs
-- [ ] Teams alert integration
-- [ ] CSV export + Excel import (migration case)
-- [ ] Holiday logic validation (e.g. Outlook or Azure Function)
-
----
-
-📌 **Note**: This is a mock version due to Microsoft 365 Developer sandbox limitations. Easily transferable to a production tenant with working permissions and real data.
