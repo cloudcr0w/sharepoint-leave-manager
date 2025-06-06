@@ -2,81 +2,98 @@
 
 ## 🇵🇱 Opis projektu
 
-System do zarządzania wnioskami urlopowymi pracowników, zbudowany w oparciu o Microsoft 365: SharePoint Online i Power Automate. Projekt pokazuje działającą strukturę listy, automatyzację zatwierdzania oraz plan dalszego rozwoju z użyciem Power Platform.
+System do zarządzania wnioskami urlopowymi pracowników, zbudowany w oparciu o Microsoft 365: SharePoint Online, Power Automate oraz Power Apps. Projekt demonstruje pełny przepływ — od zgłoszenia nieobecności po automatyzację zatwierdzeń. Dodatkowo zawiera plan dalszego rozwoju z użyciem Power Platform i Microsoft Teams.
 
-### 📋 SharePoint list
+---
 
-Lista `LeaveRequests` zawiera dane wniosków urlopowych pracowników:
+### 📋 Lista SharePoint – `LeaveRequests`
 
-- `EmployeeName` – imię i nazwisko
-- `StartDate` / `EndDate` – daty urlopu
-- `LeaveType` – typ wniosku (Vacation, Sick itd.)
-- `Status` – bieżący status (Pending, Approved, Rejected)
-- `ManagerComments` – pole na uwagi menedżera
+Zawiera dane wniosków urlopowych pracowników:
 
-📸 Podgląd:
+- `EmployeeName` – imię i nazwisko pracownika
+- `StartDate` / `EndDate` – daty rozpoczęcia i zakończenia urlopu
+- `LeaveType` – typ nieobecności (Vacation, Sick, Remote, Unpaid)
+- `Status` – status zgłoszenia (Pending, Approved, Rejected)
+- `ManagerComments` – komentarz osoby zatwierdzającej
 
-![Lista SharePoint](./screenshots/list-view.png)
+📸 Podgląd listy:
 
+<img src="./screenshots/list-view.png" width="650"/>
+
+---
+
+### 📝 Formularz Power Apps
+
+Użytkownik może przesłać wniosek o urlop, wypełniając wymagane pola i wybierając typ nieobecności:
+
+<img src="./screenshots/form-submit-clean.png" width="400"/>
+
+---
 
 ### 🔧 Funkcjonalności v1.0
-- Lista SharePoint `LeaveRequests` zawierająca zgłoszenia urlopowe
-- Pola: `EmployeeName`, `StartDate`, `EndDate`, `LeaveType`, `Status`, `ManagerComments`
-- Power Automate flow: powiadomienie mailowe + przyciski Zatwierdź/Odrzuć
-- Screenshoty i opis działania
-- Gotowość do rozszerzenia projektu w Power Apps
+
+- SharePoint list `LeaveRequests` z niestandardowymi polami
+- Power Apps formularz zgłoszeniowy (mock)
+- Power Automate Flow:
+  - Trigger: `When an item is created`
+  - Akcja: wysyłka maila z przyciskami `Approve`/`Reject`
+  - Aktualizacja statusu + komentarz menedżera
+- Dokumentacja plików + screenshoty
+- Gotowość do dalszej integracji (Teams, Power BI)
 
 ---
 
 ### 📂 Struktura plików
 
-- `sharepoint/list-schema.md` – opis struktury listy SharePoint
-- `docs/flow-description.md` – logika i kroki automatyzacji Power Automate
-- `screenshots/list-view.png` – zrzut ekranu z utworzoną listą SharePoint
+📁 sharepoint/
+└─ list-schema.md # Struktura listy SharePoint
+📁 docs/
+└─ flow-description.md # Opis flow zatwierdzania
+📁 screenshots/
+├─ list-view.png # Widok listy SharePoint
+└─ form-submit-clean.png # Widok formularza Power Apps
+
 
 ---
 
 ### 🛣️ Roadmapa
-- [ ] Formularz Power Apps do zgłaszania urlopów
-- [ ] Widok “Moje wnioski” z filtrem użytkownika
+
+- [x] Formularz Power Apps do zgłaszania urlopów
+- [ ] Widok „Moje wnioski” z filtrem użytkownika
 - [ ] Dashboard z licznikami i filtrami (Power BI / SharePoint)
-- [ ] Integracja z Microsoft Teams (np. alerty)
+- [ ] Integracja z Microsoft Teams (np. powiadomienia)
 - [ ] Eksport danych do CSV
 - [ ] Import historycznych wniosków z pliku Excel (np. migracja z systemu legacy)
-
+- [ ] Walidacja: dni robocze, święta (Outlook Calendar / Azure Function)
 
 ---
 
 ## 🇬🇧 Project Description
 
-A lightweight proof-of-concept leave request management system built with Microsoft 365: SharePoint Online and Power Automate. The project includes a working list, automation logic, and a clear roadmap for Power Platform integration.
+A lightweight leave request system built with Microsoft 365 tools: SharePoint Online, Power Automate, and Power Apps (mock version). The solution simulates a real approval workflow and is ready for further development (Teams, BI dashboards, data migration, etc.).
 
 ---
 
 ### 🔧 Features v1.0
+
 - SharePoint list `LeaveRequests` with custom fields
-- Fields: `EmployeeName`, `StartDate`, `EndDate`, `LeaveType`, `Status`, `ManagerComments`
-- Power Automate flow: approval email with Approve/Reject actions
-- Screenshots and documentation
-- Ready to be extended with Power Apps
-
----
-
-### 📂 File structure
-
-- `sharepoint/list-schema.md` – SharePoint list structure
-- `docs/flow-description.md` – Power Automate flow steps
-- `screenshots/list-view.png` – screenshot of the SharePoint list
+- Power Apps form for submitting requests
+- Power Automate approval flow (email + condition logic)
+- Status auto-update + optional manager comment
+- Screenshot-based documentation
+- Ready for Power Platform and Teams integrations
 
 ---
 
 ### 🛣️ Roadmap
-- [ ] Power Apps form for submitting leave requests
-- [ ] "My leave requests" filtered view
-- [ ] Dashboard with KPIs and filters (Power BI or SharePoint)
-- [ ] Microsoft Teams alert integration
-- [ ] CSV export functionality
+
+- [x] Power Apps form (submit request)
+- [ ] "My leave requests" view (user filter)
+- [ ] Power BI dashboard or SharePoint view with KPIs
+- [ ] Teams alert integration
+- [ ] CSV export + Excel import (migration case)
+- [ ] Holiday logic validation (e.g. Outlook or Azure Function)
 
 ---
 
-📌 **Note**: Project built and tested using Microsoft 365 trial tenant. Designed to be production-ready after authentication and permission enhancements.
+📌 **Note**: This is a mock version due to Microsoft 365 Developer sandbox limitations. Easily transferable to a production tenant with working permissions and real data.
