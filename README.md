@@ -29,23 +29,16 @@ Użytkownik może przesłać wniosek o urlop, wypełniając wymagane pola i wybi
 <img src="./screenshots/form-submit-clean.png" width="400"/>
 
 
-### 👤 Widok „Moje wnioski” – Power Apps galeria
+### 👤 Widok „Moje wnioski” + nawigacja
 
-Użytkownik może przeglądać tylko własne zgłoszenia urlopowe (na podstawie `EmployeeName = User().FullName`), w formie przejrzystej galerii:
-
-<img src="./screenshots/my-request-view.png" width="400"/>
-
-Zastosowano formatowanie pól `LeaveType`, `StartDate`, `EndDate` oraz `Status`.
-
-### 🔄 Przełączanie widoków
-
-Użytkownik może przełączać się między formularzem zgłoszeniowym a podglądem własnych wniosków.
+Użytkownik może przeglądać tylko własne zgłoszenia urlopowe (na podstawie `EmployeeName = User().FullName`), w formie przejrzystej galerii.  
+Dostępna jest intuicyjna nawigacja między formularzem a listą wniosków:
 
 - Przycisk „Moje wnioski” prowadzi do galerii
 - Przycisk „Nowy wniosek” wraca do formularza
 
-<img src="/screenshots/form-submit-with-navi-button.png" width="400"/>
-<img src=".screenshots/my-request-view-with-navi-button.png" width="400"/>
+<img src="./screenshots/form-submit-with-navi-button.png" width="400"/>
+<img src="./screenshots/my-request-view-with-navi-button.png" width="400"/>
 
 
 ### 🔧 Funkcjonalności v1.0
