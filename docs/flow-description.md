@@ -1,28 +1,67 @@
-# Power Automate – Flow: Zatwierdzanie wniosku urlopowego
+# 🔄 Power Automate – Flow: Zatwierdzanie wniosku urlopowego
 
-Ten przepływ automatyzuje proces zatwierdzania urlopów zgłoszonych przez pracowników.
+Ten przepływ automatyzuje proces zatwierdzania urlopów zgłoszonych przez pracowników w SharePoint Online.
+
+---
 
 ## 📌 Trigger
 
 - **When an item is created** in the `LeaveRequests` list
 
+---
+
 ## 🔁 Akcje
 
-1. **Get item** – pobiera szczegóły nowego wniosku
-2. **Send approval email** – wysyła maila do menadżera z przyciskami:
-   - Approve
-   - Reject
-3. **Condition** – jeśli `Outcome = Approve`
-   - zaktualizuj pole `Status` na **Approved**
-   - dodaj komentarz do `ManagerComments`
-4. Jeśli `Outcome = Reject`
-   - zaktualizuj `Status` na **Rejected**
-   - dodaj komentarz
+1. **Get item**  
+   - Pobiera szczegóły nowego wniosku (opcjonalnie, jeśli dane nie są bezpośrednio dostępne z triggera)
 
-## 📧 Przykład maila
+2. **Send approval email**  
+   - Wysyła e-mail do menedżera z przyciskami:
+     - ✅ Approve
+     - ❌ Reject
+   - Typ zgody: `Start and wait for an approval`
+   - Format wiadomości zawiera dynamiczne pola (np. imię pracownika, daty urlopu, typ)
 
-Nowy wniosek urlopowy od Adam Wrona
-Termin: 10.06.2025 - 14.06.2025
+3. **Condition**  
+   - Sprawdza wynik `Outcome` z maila:
+     - Jeśli **Approve**:
+       - Zaktualizuj pole `Status` na `Approved`
+       - Dodaj komentarz w `ManagerComments` (opcjonalnie)
+     - Jeśli **Reject**:
+       - Zaktualizuj `Status` na `Rejected`
+       - Również wpisz komentarz
+
+---
+
+## 📧 Przykładowa treść e-maila
+
+```markdown
+Nowy wniosek urlopowy od: Adam Wrona
 Typ: Vacation
+Od: 2025-06-10
+Do: 2025-06-14
 
-✅ [Zatwierdź] ❌ [Odrzuć]
+✅ [Zatwierdź]  ❌ [Odrzuć]
+```
+
+## 🧩 Użyte komponenty
+
+- **Trigger**: SharePoint – `When an item is created`
+- **Approval action**: `Start and wait for an approval`
+- **Logic**: `Condition`
+- **Update**: `Update item` – pole `Status`, `ManagerComments`
+
+---
+
+## 🟢 Wynik działania
+
+- `Status` zostaje ustawiony na `Approved` lub `Rejected`
+- `ManagerComments` może zawierać uzasadnienie decyzji
+- Wnioskodawca widzi zaktualizowany wpis bezpośrednio w SharePoint
+
+---
+
+📌 Flow może być rozszerzony w przyszłości o:
+- Alert w Teams
+- Dodanie załącznika do zgłoszenia
+- Powiadomienie e-mail do wnioskodawcy
