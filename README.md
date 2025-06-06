@@ -42,6 +42,8 @@ Lista `LeaveRequests` zawiera dane wniosków urlopowych pracowników:
 - [ ] Dashboard z licznikami i filtrami (Power BI / SharePoint)
 - [ ] Integracja z Microsoft Teams (np. alerty)
 - [ ] Eksport danych do CSV
+- [ ] Import historycznych wniosków z pliku Excel (np. migracja z systemu legacy)
+
 
 ---
 
