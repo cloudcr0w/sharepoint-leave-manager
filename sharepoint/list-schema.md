@@ -1,19 +1,23 @@
-# Lista SharePoint: LeaveRequests
+# 📋 Lista SharePoint: LeaveRequests
 
-Lista przeznaczona do zbierania i zarządzania wnioskami urlopowymi pracowników.
+Lista przeznaczona do zbierania i zarządzania wnioskami urlopowymi pracowników w systemie SharePoint Online.
 
-## 📋 Pola listy
+---
 
-| Nazwa kolumny     | Typ danych              | Opis                                |
+## 🗂️ Struktura pól
+
+| Nazwa kolumny     | Typ danych              | Opis                                 |
 |-------------------|-------------------------|--------------------------------------|
-| EmployeeName      | Single line of text     | Imię i nazwisko pracownika           |
-| StartDate         | Date                    | Data rozpoczęcia urlopu              |
-| EndDate           | Date                    | Data zakończenia urlopu              |
-| LeaveType         | Choice (select)         | Typ urlopu: Vacation, Sick, Unpaid   |
-| Status            | Choice (select)         | Status: Pending, Approved, Rejected  |
-| ManagerComments   | Multiple lines of text  | Komentarze od osoby zatwierdzającej  |
+| `EmployeeName`    | Single line of text     | Imię i nazwisko pracownika           |
+| `StartDate`       | Date                    | Data rozpoczęcia urlopu              |
+| `EndDate`         | Date                    | Data zakończenia urlopu              |
+| `LeaveType`       | Choice (select)         | Typ urlopu: Vacation, Sick, Unpaid   |
+| `Status`          | Choice (select)         | Status: Pending, Approved, Rejected  |
+| `ManagerComments` | Multiple lines of text  | Komentarze od osoby zatwierdzającej  |
 
-## 🧪 Przykładowy wpis (w formie JSON)
+---
+
+## 🧪 Przykładowy wpis (w formacie JSON)
 
 ```json
 {
@@ -24,3 +28,6 @@ Lista przeznaczona do zbierania i zarządzania wnioskami urlopowymi pracowników
   "Status": "Pending",
   "ManagerComments": ""
 }
+```
+
+## 📌 Uwagi: Lista może być rozszerzona o dodatkowe pola np. LeaveReason, Attachment, CreatedBy w przyszłych wersjach.
